@@ -8,9 +8,9 @@ npm test
 ```
 2.运行某个文件夹下的测试
 ```
-npm run test-single specs/filter/
+npm run test-single spec/filter/
 ```
 3.运行单个文件的测试
 ```
-npm run test-single specs/filter/choose_even_spec.js
-```
+npm run test-single spec/filter/choose_even_spec.js
+``
