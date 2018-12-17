@@ -20,7 +20,7 @@ function count_same_elements(collection) {
   }
   for (let j = 0; j < noRepeatArray.length; j++) {
     for (let k = 0; k < collection.length; k++) {
-      if (noRepeatArray[j].includes(collection[k])) {
+      if (noRepeatArray[j]. === (collection[k])) {
         count++;
       }
     }
