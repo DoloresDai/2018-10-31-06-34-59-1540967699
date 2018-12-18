@@ -1,24 +1,17 @@
 'use strict';
 
 function get_integer_interval(number_a, number_b) {
-  let difference = number_b - number_a;
-  var newArray = [];
-  if (number_b - number_a > 0) {
-    return newArray = getArray
-  } else if (number_b - number_a === 0) {
-    return newArray.push(number_a)
-  } else if (number_b - number_a < 0) {
-    return newArray = getArray.reverse;
+  if (number_b - number_a >= 0) {
+    return getArray(number_a, number_b);
+  } else {
+    return getArray(number_b, number_a).reverse();
   }
 }
-return newArray;
 
 function getArray(number_a, number_b) {
-  let varriable;
-  var intervalArray = new Array；
-  while (number_b >= varriable) {
-    varriable = number_a++;
-    intervalArray.push(varriable);
+  var intervalArray = [];
+  for (number_a; number_a <= number_b; number_a++) {
+    intervalArray.push(number_a);
   }
   return intervalArray;
 }
