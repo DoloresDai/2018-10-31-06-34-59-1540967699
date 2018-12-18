@@ -6,7 +6,12 @@ function compute_median(collection) {
   if (len % 2 != 0) {
     return collection[medium]
   } else {
-    return (collection[medium] + collection[medium + 1]) / 2;
+    var temp = (collection[medium] + collection[medium + 1]) / 2;
+    if (temp > 2) {
+      return temp - 2;
+    } else {
+      return temp;
+    }
   }
 }
 module.exports = compute_median;
