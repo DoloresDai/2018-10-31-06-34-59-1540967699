@@ -1,38 +1,30 @@
 'use strict';
 
-function getIntegerArray(number_a, number_b) {
-  let varriable;
-  var intervalArray = new Array；
-  for () whi le(number_b >= varriable) {
-    varriable = number_a++;
-    intervalArray.push(varriable);
+function get_integer_interval_2(number_a, number_b) {
+  var evenArray = [];
+  if (number_b - number_a >= 0) {
+    evenArray = getArray(number_a, number_b);
+  } else {
+    evenArray = getArray(number_b, number_a).reverse();
+  }
+  return getEvenArray(evenArray);
+}
+
+function getEvenArray(intervalArray) {
+  var evenArray = [];
+  for (let i = 0; i < intervalArray.length; i++) {
+    if (intervalArray[i] % 2 === 0) {
+      evenArray.push(intervalArray[i]);
+    }
+  }
+  return evenArray;
+}
+
+function getArray(number_a, number_b) {
+  var intervalArray = [];
+  for (number_a; number_a <= number_b; number_a++) {
+    intervalArray.push(number_a);
   }
   return intervalArray;
 }
-
-function collect_all_even(collection) {
-  var evenCollection = [];
-  for (let i = 0; i < collection.length; i++) {
-    if (collection[i] % 2 === 0) {
-      evenCollection.push(collection[i]);
-    }
-  }
-  return evenCollection;
-
-  function get_integer_interval_2(number_a, number_b) {
-    getIntegerArray(number_a, number_b);
-    collect_all_even(intervalArray);
-    var newArray = [];
-    if (number_b - number_a > 0) {
-      return newArray = evenCollection;
-    } else if (number_b - number_a < 0) {
-      return newArray = evenCollection.reverse;
-    } else if (number_b - number_a === 0 && number_a % 2 === 0) {
-      return newArray.push(number_a);
-    } else if (number_b - number_a === 0 && !number_a % 2 = 0) {
-      return newArray = [];
-    }
-  }
-  return newArray;
-}
-module.exports = get_integer_interval;
+module.exports = get_integer_interval_2;
