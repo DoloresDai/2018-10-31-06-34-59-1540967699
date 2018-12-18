@@ -1,29 +1,32 @@
 'use strict';
 
-function getCharCode(number_a, number_b) {
-  var Array = [number_a, number_b]
-  var string = Array.join();
-  number_a = string.charCodeAt(0);
-  number_b = string.charCodeAt(1);
-  return number_a, number_b;
+function getCharCode(number) {
+  if (number < 27) {
+    return String.fromCharCode(number + 96);
+  } else if (number < 53 && number > 26) {
+    return 'a' + String.fromCharCode(number + 70);
+  } else {
+    return 'b' + String.fromCharCode(number + 44);
+  }
 }
 
-function getIntegerArray(number_a, number_b) {
-  let varriable = number_b - number_a;
-  var intervalArray = new Array；
-  while (number_b >= varriable) {
-    varriable = number_a++;
-    intervalArray.push(varriable);
+function getCharCodeArray(number_a, number_b) {
+  var getLetterInterval = [];
+  for (number_a; number_a <= number_b; number_a++) {
+    if (number_a < 27) {
+      getLetterInterval.push(getCharCode(number_a))
+    } else {
+      getLetterInterval.push(getCharCode(number_a))
+    }
   }
-  return intervalArray;
+  return getLetterInterval;
 }
 
 function get_letter_interval(number_a, number_b) {
-  let varriable = number_b - number_a;
-  var charCodeArray = [];
-  for (let i = 0; i < varriable; i++) {
-    charCodeArray.push(intervalArray.join.charCodeArray(i));
+  if (number_a > number_b) {
+    return getCharCodeArray(number_b, number_a).reverse();
+  } else {
+    return getCharCodeArray(number_a, number_b)
   }
-  return charCodeArray;
 }
 module.exports = get_letter_interval;
