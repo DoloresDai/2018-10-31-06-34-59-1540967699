@@ -1,10 +1,7 @@
 'use strict';
 
 function one_add_next_multiply_three(collection) {
-  var arithmeticArray = [];
-  for (let i = 0; i < collection.length - 1; i++) {
-    arithmeticArray.push((collection[i] + collection[i + 1]) * 3);
-  }
-  return arithmeticArray;
+  let arr = collection.map((value, index) => (collection[index] + collection[index + 1]) * 3);
+  return arr.filter(x => !(!x || x === ""));
 }
 module.exports = one_add_next_multiply_three;

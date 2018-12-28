@@ -1,22 +1,12 @@
 'use strict';
 
 function getEvenSequenceArray(collection) {
-  var evenSequenceArray = [];
-  for (let i = 1; i < collection.length; i += 2) {
-    evenSequenceArray.push(collection[i]);
-  }
+  let evenSequenceArray = collection.filter((value, index) => index % 2 === 1);
   return evenSequenceArray;
 }
 
 function chooseNoRepeatNumber(collection) {
-  var noRepeatArray = [];
-  var index = 0;
-  for (index in collection) {
-    if (collection.indexOf(collection[index]) === collection.lastIndexOf(collection[index])) {
-      noRepeatArray.push(collection[index]);
-    }
-  }
-  return noRepeatArray;
+  return collection.filter(x => collection.indexOf(x) === collection.lastIndexOf(x));
 }
 var single_element = function(collection) {
   return chooseNoRepeatNumber(getEvenSequenceArray(collection));
