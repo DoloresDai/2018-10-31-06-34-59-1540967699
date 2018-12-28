@@ -1,32 +1,23 @@
 'use strict';
-
-function getCharCode(number) {
-  if (number < 27) {
-    return String.fromCharCode(number + 96);
-  } else if (number < 53 && number > 26) {
-    return 'a' + String.fromCharCode(number + 70);
-  } else {
-    return 'b' + String.fromCharCode(number + 44);
-  }
-}
-
-function getCharCodeArray(number_a, number_b) {
-  var getLetterInterval = [];
-  for (number_a; number_a <= number_b; number_a++) {
-    if (number_a < 27) {
-      getLetterInterval.push(getCharCode(number_a))
-    } else {
-      getLetterInterval.push(getCharCode(number_a))
-    }
-  }
-  return getLetterInterval;
-}
+const LETTER = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
 function get_letter_interval(number_a, number_b) {
-  if (number_a > number_b) {
-    return getCharCodeArray(number_b, number_a).reverse();
+  let start = (number_a >= number_b) ? number_b : number_a;
+  let end = (number_a >= number_b) ? number_a : number_b;
+  let result = [];
+  for (; start <= end; start++) {
+    result.push(getLetterByCode(start));
+  }
+  return (number_a <= number_b) ? result : result.reverse();
+}
+
+function getLetterByCode(code) {
+  if (code <= LETTER.length) {
+    return LETTER[code - 1];
   } else {
-    return getCharCodeArray(number_a, number_b)
+    let firstLetter = LETTER[Math.floor((code - 1) / LETTER.length) - 1];
+    let secondLetter = LETTER[(code - 1) % LETTER.length];
+    return firstLetter + secondLetter;
   }
 }
 module.exports = get_letter_interval;
