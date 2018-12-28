@@ -1,11 +1,4 @@
 function collect_same_elements(collection_a, collection_b) {
-  var commonElement = [];
-  var index = 0;
-  for (index in collection_a) {
-    if (collection_b[0].includes(collection_a[index])) {
-      commonElement.push(collection_a[index]);
-    }
-  }
-  return commonElement;
+  return collection_a.filter(x => collection_b[0].includes(x));
 }
 module.exports = collect_same_elements;
