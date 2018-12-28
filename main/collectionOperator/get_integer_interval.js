@@ -1,18 +1,12 @@
 'use strict';
 
 function get_integer_interval(number_a, number_b) {
-  if (number_b - number_a >= 0) {
-    return getArray(number_a, number_b);
-  } else {
-    return getArray(number_b, number_a).reverse();
+  let start = (number_a >= number_b) ? number_b : number_a;
+  let end = (number_a >= number_b) ? number_a : number_b;
+  let result = [];
+  for (let i = start; i <= end; i++) {
+    result.push(i);
   }
-}
-
-function getArray(number_a, number_b) {
-  var intervalArray = [];
-  for (number_a; number_a <= number_b; number_a++) {
-    intervalArray.push(number_a);
-  }
-  return intervalArray;
+  return (number_a <= number_b) ? result : result.reverse();
 }
 module.exports = get_integer_interval;
