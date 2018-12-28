@@ -1,17 +1,9 @@
 'use strict';
 
 function compute_median(collection) {
-  var len = collection.length;
-  var medium = Math.floor((len - 1) / 2);
-  if (len % 2 != 0) {
-    return collection[medium]
-  } else {
-    var temp = (collection[medium] + collection[medium + 1]) / 2;
-    if (temp > 2) {
-      return temp - 2;
-    } else {
-      return temp;
-    }
-  }
+  var sortArray = collection.sort((x, y) => x - y);
+  var floor = Math.floor((sortArray.length - 1) / 2);
+  var ceil = Math.ceil((sortArray.length - 1) / 2);
+  return (Number(sortArray[floor]) + Number(sortArray[ceil])) / 2;
 }
 module.exports = compute_median;
