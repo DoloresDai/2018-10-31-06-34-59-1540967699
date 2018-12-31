@@ -5,9 +5,9 @@ function count_same_elements(collection) {
 }
 
 function groupObj(collection) {
-  return collection.reduce((key, value) => {
-    key[value] = (key[value] + 1) || 1;
-    return key;
+  return collection.reduce((pre, value) => {
+    pre[value] = (pre[value] + 1) || 1;
+    return pre;
   }, {});
 }
 
