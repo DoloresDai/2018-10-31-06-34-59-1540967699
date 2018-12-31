@@ -26,4 +26,29 @@ function generateDigitObj(collection) {
   }
   return temp;
 }
+
+function getMax(collection) {
+  return collection.reduce((a, b) => {
+    return a > b ? a : b;
+  });
+}
+
+function getEvenArray(collection) {
+  return collection.filter((element) => {
+    return element % 2 === 0;
+  })
+}
+
+function getArrByEvenIndex(collection) {
+  return collection.filter((element, index) => {
+    return index % 2 === 1;
+  })
+}
+
+function calculateAverage(array) {
+  let sum = array.reduce((accumulator, currentValue) => {
+    return accumulator + currentValue;
+  });
+  return Math.round(sum / array.length);
+}
 module.exports = even_group_calculate_average;
