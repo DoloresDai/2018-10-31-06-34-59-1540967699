@@ -1,35 +1,22 @@
 'use strict';
 
-function groupingCountObj(key, val) {
-  var groupingCount = {
-    'key': key,
-    'count': val
-  };
-  return groupingCount;
+function count_same_elements(collection) {
+  return getObj(groupObj(collection));
 }
 
-function count_same_elements(collection) {
-  var count = 0;
-  var counts = [];
-  var noRepeatArray = [];
-  var groupingArray = [];
-  for (let i = 0; i < collection.length; i++) {
-    if (!noRepeatArray.includes(collection[i])) {
-      noRepeatArray.push(collection[i]);
-    }
-  }
-  for (let j = 0; j < noRepeatArray.length; j++) {
-    for (let k = 0; k < collection.length; k++) {
-      if (noRepeatArray[j] === (collection[k])) {
-        count++;
-      }
-    }
-    counts.push(count);
-    count = 0;
-  }
-  for (let index in noRepeatArray) {
-    groupingArray.push(groupingCountObj(noRepeatArray[index], counts[index]));
-  }
-  return groupingArray;
+function groupObj(collection) {
+  return collection.reduce((key, value) => {
+    key[value] = (key[value] + 1) || 1;
+    return key;
+  }, {});
+}
+
+function getObj(obj) {
+  return Object.keys(obj).map((value) => {
+    return {
+      key: value,
+      count: obj[value]
+    };
+  });
 }
 module.exports = count_same_elements;
